@@ -3,11 +3,11 @@
 * read-in data
   - visualize the distribution of data to decide which threshold of IC50 to use
   - filter out non-binders (ic50 = 10,000 nM)
-  - decide which alleles to use
+  - decide which alleles to use and split the peptide sequences(80/20) for train/test
   - cluster peptides with Hobohm and heuristics (1/r\*s)
   
 * construct the PSSM for X MHC I alleles (X = 20)
 * visualize the PSSMs as logos
-* do prediction with PSSM
-* compute against published data
+* do prediction with PSSM with test data
+* Pearson correlations
 
