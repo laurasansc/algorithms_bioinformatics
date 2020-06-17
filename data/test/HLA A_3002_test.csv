@@ -1,0 +1,7 @@
+species,allele,length,cv,sequence,inequality,ic50,smm
+human,HLA A*3002,9,3,NYMKIMNHL,=,110.0,870.7
+human,HLA A*3002,9,4,YYNNFNNNY,=,58.0,52.6
+human,HLA A*3002,9,1,RMTSLKNEL,=,14.0,1207.1
+human,HLA A*3002,9,0,QYSQPQQPI,=,93.2957,82.5
+human,HLA A*3002,9,3,SQSDTVFDY,=,2.44232,79.8
+human,HLA A*3002,9,0,DMCDIYLLY,=,261.938,2664.8
