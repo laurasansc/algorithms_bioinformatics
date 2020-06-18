@@ -1,0 +1,7 @@
+species,allele,length,cv,sequence,inequality,ic50,smm
+human,HLA A*2403,9,2,TFMYVFSTF,=,6.39,338.6
+human,HLA A*2403,9,1,VFLPNTHNL,=,1.55,182.4
+human,HLA A*2403,9,0,EHFYWGSVF,=,318.4,1182.3
+human,HLA A*2403,9,0,AYLLQHLDL,=,1.53,63.7
+human,HLA A*2403,9,3,AVMFFPFWF,=,339.3,181.3
+human,HLA A*2403,9,0,RVNKGTGVK,=,437.4,71382.2
