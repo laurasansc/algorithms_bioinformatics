@@ -8,6 +8,6 @@
   
 * construct the PSSM for X MHC I alleles (X = 20)
 * visualize the PSSMs as logos
-* do prediction with PSSM with test data
-* Pearson correlations
+* do [prediction](02_predictions_LSC.ipynb) with PSSM with test data
+* [Pearson correlations](02_predictions_LSC.ipynb)
 
