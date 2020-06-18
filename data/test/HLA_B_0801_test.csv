@@ -1,6 +1,0 @@
-species,allele,length,cv,sequence,inequality,ic50,smm
-human,HLA B*0801,9,0,NLKLYGAEF,=,432.7,3124.9
-human,HLA B*0801,9,2,NNKSRLVAF,=,161.0,1823.9
-human,HLA B*0801,9,1,FHLRSRFAF,=,112.95,2934.1
-human,HLA B*0801,9,2,YLKKWLNSF,=,69.5,3199.7
-human,HLA B*0801,9,4,FLKDVMESM,=,158.0,2503.1
