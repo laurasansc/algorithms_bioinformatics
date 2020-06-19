@@ -11,3 +11,6 @@
 * do [prediction](02_predictions_LSC.ipynb) with PSSM with test data
 * [Pearson correlations](02_predictions_LSC.ipynb)
 
+
+
+The code can be run all by downloading the entire repository and running the [\_\_main__.py](__main__.py) file. Be aware that in all the files there is a specified data directory which needs to be changed to the new directory where you downloaded the repository. PS: It needs to be fixed so you don't actually need to touch anything from the code and you can call several different variables. 
