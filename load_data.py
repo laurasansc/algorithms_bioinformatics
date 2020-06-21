@@ -27,10 +27,10 @@ def main():
             print(allele_no, allele)
             allele_data = human_data.loc[(human_data['allele'] == allele) &
                                          (human_data['ic50'] < 500) &
-                                         (human_data['length'] == 9) ].sort_values(by='ic50', ascending=True)
+                                         (human_data['length'] == 9) ]
             train, test = train_test_split(allele_data, test_size = 0.2)
-            train = pd.DataFrame(train)
-            test = pd.DataFrame(test)
+            train = pd.DataFrame(train).sort_values(by='ic50', ascending=True)
+            test = pd.DataFrame(test).sort_values(by='ic50', ascending=True)
             train.to_csv(data_dir + '/train/' + allele.replace('*','_').replace(' ','_')+'_train.csv', index=False)
             test.to_csv(data_dir + '/test/' + allele.replace('*','_').replace(' ','_')+'_test.csv', index=False)
         allele_no = allele_no +1
