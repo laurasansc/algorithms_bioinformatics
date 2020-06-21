@@ -4,9 +4,6 @@
 # # Hobohm 1
 
 # ## Python Imports
-
-
-
 import numpy as np
 from time import time
 from math import sqrt
@@ -16,42 +13,26 @@ from scipy.spatial.distance import cosine
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-# ## Data Imports
-
-# ## DEFINE THE PATH TO YOUR COURSE DIRECTORY
-
-
 def load_CSV_sequences(alm_file):
-    
     data = pd.read_csv(alm_file)
     
     return data
-
-
-# In[5]:
-
 
 def encode(peptides, scoring_scheme, alphabet):
     encoded_peptides = []
         
     for peptide in peptides:
         encoded_peptide = []
-
         for peptide_letter in peptide:
-            
             for alphabet_letter in alphabet:
                 
-                encoded_peptide.append(scoring_scheme[peptide_letter][alphabet_letter])
-                
+                encoded_peptide.append(scoring_scheme[peptide_letter][alphabet_letter])             
         #add a 1 (bias)
         encoded_peptide.append(1)
-
         #store peptide
         encoded_peptides.append(encoded_peptide)
                
     return np.array(encoded_peptides)
-
-
 
 def homology_function(alignment_length, matches, threshold, scoring_scheme, alphabet, peptide1 = None, peptide2 = None):
     if (peptide1!=None) & (peptide2!=None):
@@ -78,8 +59,6 @@ def homology_function(alignment_length, matches, threshold, scoring_scheme, alph
 # ## Smith-Waterman O2
 # 
 # ### This code is identical to the code you wrote the other day
-
-
 def smith_waterman(query, database, scoring_scheme, gap_open, gap_extension):
     
     P_matrix, Q_matrix, D_matrix, E_matrix, i_max, j_max, max_score = smith_waterman_alignment(query, database, scoring_scheme, gap_open, gap_extension)
@@ -138,7 +117,6 @@ def smith_waterman_alignment(query, database, scoring_scheme, gap_open, gap_exte
             
             direction, max_score = max(candidates, key=lambda x: x[1])
             
-            
             # check entry sign
             if max_score > 0:
                 E_matrix[i,j] = direction
@@ -174,7 +152,6 @@ def smith_waterman_traceback(E_matrix, D_matrix, i_max, j_max, query, database, 
     
     # total identical matches
     matches = 0
-
         
     # start from max_i, max_j
     i, j = i_max, j_max
@@ -193,14 +170,12 @@ def smith_waterman_traceback(E_matrix, D_matrix, i_max, j_max, query, database, 
             i += 1
             j += 1
         
-        
         # E[i,j] = 2, gap opening in database
         if E_matrix[i, j] == 2:
             aligned_database.append("-")
             aligned_query.append(query[i])
             i += 1
-
-            
+ 
         # E[i,j] = 3, gap extension in database
         if E_matrix[i, j] == 3:
                    
@@ -215,15 +190,13 @@ def smith_waterman_traceback(E_matrix, D_matrix, i_max, j_max, query, database, 
             for k in range(i, count):
                 aligned_database.append("-")
                 aligned_query.append(query[i])
-                i += 1
-            
+                i += 1  
             
         # E[i,j] = 4, gap opening in query
         if E_matrix[i, j] == 4:
             aligned_query.append("-")
             aligned_database.append(database[j])
             j += 1
-        
         
         # E[i,j] = 5, gap extension in query
         if E_matrix[i, j] == 5:
@@ -240,23 +213,14 @@ def smith_waterman_traceback(E_matrix, D_matrix, i_max, j_max, query, database, 
                 aligned_query.append("-")
                 aligned_database.append(database[j])
                 j += 1
-
-                
+          
     return aligned_query, aligned_database, matches
-
-
-
-
 
 # ## Hobohm 1
 
 # ### Similarity Function
 # 
 # ### This code defines the threshold for similarity
-
-# In[8]:
-
-
 #def homology_function(alignment_length, matches):
 #
 #    homology_score = 2.9 * sqrt(alignment_length) # FIX FOR SHORT PEPTIDES
@@ -265,7 +229,6 @@ def smith_waterman_traceback(E_matrix, D_matrix, i_max, j_max, query, database, 
 #        return "discard", homology_score
 #    else:
 #        return "keep", homology_score
-
 
 
 def main():
@@ -324,7 +287,7 @@ def main():
         scoring_scheme = blosum50
         gap_open = -11
         gap_extension = -1
-        threshold = 0.25
+        threshold = 0.3
 
         t0 = time()
 
