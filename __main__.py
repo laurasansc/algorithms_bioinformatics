@@ -6,10 +6,10 @@ import get_hobohm_PSSM
 import predictions
 
 
-load_data.main()
-heuristics_PSSM.main()
-hobohm1_centroids.main()
-get_hobohm_PSSM.main()
+#load_data.main()
+#heuristics_PSSM.main()
+#hobohm1_centroids.main()
+#get_hobohm_PSSM.main()
 predictions.main()
 
 

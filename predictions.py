@@ -116,13 +116,18 @@ def main():
                     plt.close('all')
                     plt.figure(figsize=(7,5))
                     plt.scatter(evaluation_targets, evaluation_predictions, color="gray")
+                    # Trend line
+                    z = np.polyfit(evaluation_targets, evaluation_predictions, 1)
+                    y_hat = np.poly1d(z)(evaluation_targets)
+                    plt.plot(evaluation_targets, y_hat, "r--", lw=1)
+
                     plt.title('Pearson Correlation ' + allele[:-4])
                     plt.ylim(0)
                     plt.xlabel('Evaluation targets transformed IC50')
                     plt.ylabel('Evaluation predictions')
                     plt.text(max(evaluation_targets)/(max(evaluation_targets)+(max(evaluation_targets)/2)), max(evaluation_predictions)/(max(evaluation_predictions)*0.40), s)
                     fname = data_dir+ "pcc_plots/"+ allele[:-4] + "_"+ method + "_"+ group + '.png'  
-                    plt.savefig(fname, format='png', dpi=100)
+                    plt.savefig(fname, format='png', dpi=300)
 
     pcc_df = pd.DataFrame.from_dict(pcc_dict, orient='index', columns=['Hobohm_train', 'Heuristics_train', 'Hobohom_test', 'Heuristics_test', 'Hobohm_train_cluster_centroids'])
     pcc_df['allele'] = pcc_df.index
