@@ -178,7 +178,7 @@ def main():
     
     alphabet, blosum62, bg = load_data_utils()
 
-    sequence_weighting = True
+    #sequence_weighting = False
     beta = 50
     peptide_len = 9
     train_dir = data_dir + 'train/'
@@ -209,7 +209,7 @@ def main():
             wmatrix = w_matrix(pmatrix, bg, peptide_len, alphabet)
 
             # Write out PSSM in Psi-Blast format to file
-            file_name = data_dir + "hobohm_PSSM/w_matrix_" + allele + '.csv'
+            file_name = data_dir + "HobohmI_PSSM/w_matrix_" + allele + '.csv'
             to_psi_blast_file(wmatrix, file_name)
 
 

@@ -235,7 +235,7 @@ def main():
             wmatrix = w_matrix(pmatrix, bg, peptide_len, alphabet)
 
             # Write out PSSM in Psi-Blast format to file
-            file_name = data_dir + "heuristics_PSSM/w_matrix_" + allele + '.csv'
+            file_name = data_dir + "Heuristics_PSSM/w_matrix_" + allele + '.csv'
             to_psi_blast_file(wmatrix, file_name)
         
 

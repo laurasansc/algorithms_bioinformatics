@@ -60,7 +60,7 @@ def main():
     
     # Groups of data, splitted before
     groups = ["train", "test", "train_cluster_centroids"]
-    methods = ["hobohm","heuristics"]
+    methods = ["HobohmI","Heuristics"]
     original_df = pd.read_csv(data_dir+"filtered_dataset.csv")
     pcc_df = original_df["allele"].unique()
 
@@ -68,7 +68,7 @@ def main():
     pcc_dict = defaultdict(list)
     for group in groups:
         for method in methods:
-            if group == "train_cluster_centroids" and method == "heuristics":
+            if group == "train_cluster_centroids" and method == "Heuristics":
                 break
             for evaluation_file in os.listdir(data_dir+group+'/'):
                 if evaluation_file.endswith("_"+group+".csv"): 
@@ -121,7 +121,7 @@ def main():
                     y_hat = np.poly1d(z)(evaluation_targets)
                     plt.plot(evaluation_targets, y_hat, "r--", lw=1)
 
-                    plt.title('Pearson Correlation ' + allele[:-4])
+                    plt.title(method +' Pearson Correlation ' + allele[:-4])
                     plt.ylim(0)
                     plt.xlabel('Evaluation targets transformed IC50')
                     plt.ylabel('Evaluation predictions')
